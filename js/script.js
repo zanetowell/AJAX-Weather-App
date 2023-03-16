@@ -15,6 +15,7 @@ function handleGetData(event) {
         url:`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=69b588fb75605ff2206f861816851de0&units=imperial`
       }).then(
         (data) => {
+            console.log(data);
          cityData = data;
          render();
         },
@@ -28,6 +29,6 @@ function render() {
     $city.text(cityData.name)
     $temp.text(cityData.main.temp)
     $feels.text(cityData.main.feels_like)
-    $weather.text(cityData.weather)
+    $weather.text(cityData.weather[0].main)
 
 }
