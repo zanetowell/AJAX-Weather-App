@@ -8,6 +8,8 @@ const $input = $('input[type="text"]')
 
 $('form').on('submit', handleGetData)
 
+
+
 function handleGetData(event) {
     event.preventDefault();
     userInput = $input.val();
