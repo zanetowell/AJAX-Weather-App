@@ -12,10 +12,10 @@ function handleGetData(event) {
     event.preventDefault();
     userInput = $input.val();
     $.ajax({
-        url:`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=4bc9d3ba`
+        url:`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=69b588fb75605ff2206f861816851de0&units=imperial`
       }).then(
         (data) => {
-         movieData = data;
+         cityData = data;
          render();
         },
         (error) => {
@@ -25,6 +25,9 @@ function handleGetData(event) {
 }
 
 function render() {
-    $city.text(cityData)
+    $city.text(cityData.name)
+    $temp.text(cityData.main.temp)
+    $feels.text(cityData.main.feels_like)
+    $weather.text(cityData.weather)
+
 }
-    
